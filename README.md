@@ -9,3 +9,11 @@
 > 1. npm i (para instalar as ferramentas)
 > 2. npm start (para funcionar a parte do front da aplicação) | após isso o navegador será aberto:
 ![](https://github.com/luizlima-code/CadastroPessoas/blob/dev/imgs/telaInicial.PNG)
+<br/>
+<br/>
+
+## :rocket: Ferramentas usadas: :rocket:
+[Editor] VsCode </br>
+[BackEnd] NodeJS, Json-server </br>
+[FrontEnd] React, React-router, bootstrap, font-awesome e axios
+<br/>
