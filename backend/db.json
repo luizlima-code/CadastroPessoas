@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "name": "Luiz Lima",
+      "email": "luizlima.udi@gmail.com",
+      "date": "1999-10-03",
+      "city": "Uberlandia",
+      "state": "MG",
+      "id": 1
+    }
+  ]
+}
