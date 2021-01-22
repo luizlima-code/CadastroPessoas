@@ -17,14 +17,6 @@
       "id": 3
     },
     {
-      "name": "Dener",
-      "email": "dener@gmail.com",
-      "date": "2000-11-10",
-      "city": "Uberlandia",
-      "state": "MG",
-      "id": 4
-    },
-    {
       "name": "Larissa",
       "email": "manoelalaris@gmail.com",
       "date": "2004-10-14",
@@ -39,6 +31,14 @@
       "city": "Uberlandia",
       "state": "MG",
       "id": 6
+    },
+    {
+      "name": "Ana Claudia",
+      "email": "anacla@gmail.com",
+      "date": "1984-04-16",
+      "city": "Rio de Janeiro",
+      "state": "RJ",
+      "id": 7
     }
   ]
 }

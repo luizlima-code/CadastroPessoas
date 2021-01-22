@@ -27,7 +27,44 @@ export default class UserCrud extends Component {
     this.setState({ user: initialState.user });
   }
 
-  save() {
+  isEmail() {
+    const email = this.state.user.email;
+    if (typeof email !== "undefined") {
+      const pattern = new RegExp(
+        /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i
+      );
+
+      if (!pattern.test(email)) {
+        return false;
+      }
+    }
+  }
+
+  save(e) {
+    e.preventDefault();
+    const name = this.state.user.name.length;
+    const email = this.state.user.email;
+    const city = this.state.user.city.length;
+    const state = this.state.user.state.length;
+    const emailValid = this.isEmail(email);
+    if (name === 0) {
+      return alert("Campo nome obrigatório");
+    } else if (email.length === 0) {
+      return alert("Campo email obrigatório");
+    } else if (emailValid === false) {
+      return alert("Endereço de email inválido");
+    } else if (city === 0) {
+      return alert("Campo cidade obrigatório");
+    } else if (state !== 2) {
+      return alert("Campo estado obrigatório");
+    } else {
+      this.setState(() => {
+        return this.saveEnd();
+      });
+    }
+  }
+
+  saveEnd() {
     const user = this.state.user;
     const method = user.id ? "put" : "post";
     const url = user.id ? `${baseUrl}/${user.id}` : baseUrl;
@@ -58,7 +95,6 @@ export default class UserCrud extends Component {
               <label>Nome</label>
               <input
                 type="text"
-                required
                 className="form-control"
                 name="name"
                 value={this.state.user.name}
@@ -72,7 +108,6 @@ export default class UserCrud extends Component {
             <div className="form-group">
               <label>E-mail</label>
               <input
-                required
                 type="text"
                 className="form-control"
                 name="email"
@@ -87,7 +122,6 @@ export default class UserCrud extends Component {
             <div className="form-group">
               <label>Data de Nascimento</label>
               <input
-                 required
                 type="date"
                 className="form-control"
                 name="date"
@@ -102,7 +136,6 @@ export default class UserCrud extends Component {
               <label>Cidade</label>
               <input
                 type="text"
-                required
                 className="form-control"
                 name="city"
                 value={this.state.user.city}
@@ -117,7 +150,6 @@ export default class UserCrud extends Component {
               <label>Estado</label>
               <input
                 type="text"
-                required
                 className="form-control"
                 maxlength="2"
                 name="state"
