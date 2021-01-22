@@ -51,13 +51,14 @@ export default class UserCrud extends Component {
 
   renderForm() {
     return (
-      <div className="form">
+      <form className="form">
         <div className="row">
           <div className="col-12 col-md-6">
             <div className="form-group">
               <label>Nome</label>
               <input
                 type="text"
+                required
                 className="form-control"
                 name="name"
                 value={this.state.user.name}
@@ -71,6 +72,7 @@ export default class UserCrud extends Component {
             <div className="form-group">
               <label>E-mail</label>
               <input
+                required
                 type="text"
                 className="form-control"
                 name="email"
@@ -85,6 +87,7 @@ export default class UserCrud extends Component {
             <div className="form-group">
               <label>Data de Nascimento</label>
               <input
+                 required
                 type="date"
                 className="form-control"
                 name="date"
@@ -99,6 +102,7 @@ export default class UserCrud extends Component {
               <label>Cidade</label>
               <input
                 type="text"
+                required
                 className="form-control"
                 name="city"
                 value={this.state.user.city}
@@ -113,6 +117,7 @@ export default class UserCrud extends Component {
               <label>Estado</label>
               <input
                 type="text"
+                required
                 className="form-control"
                 maxlength="2"
                 name="state"
@@ -139,7 +144,7 @@ export default class UserCrud extends Component {
             </button>
           </div>
         </div>
-      </div>
+      </form>
     );
   }
 
@@ -179,7 +184,7 @@ export default class UserCrud extends Component {
           <td></td>
           <td>{user.name}</td>
           <td>{user.email}</td>
-          <td>{user.date.split("-").reverse().join("")}</td>
+          <td>{user.date}</td>
           <td>
             {user.city}/{user.state}
           </td>
